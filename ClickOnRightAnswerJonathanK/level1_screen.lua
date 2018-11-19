@@ -76,15 +76,31 @@ local level1Text
 -- Boolean variable that states if user clicked the answer or not
 local alreadyClickedAnswer = false
 
+local numbersCorrect
+
+
 
 -----------------------------------------------------------------------------------------
 -- SOUND
 -----------------------------------------------------------------------------------------
 
+local correctSound = audio.loadSound( "Sounds/CorrectAnswer.mp3" ) -- Setting a variable to an mp3 file
+local wrongSound = audio.loadSound( "Sounds/wrongSound.mp3" ) -- Setting a variable to an mp3 file
+local bkgMusic = audio.loadStream( "Sounds/level1Music.wav" ) -- Setting a variable to an mp3 file
+local youWinMusic = audio.loadSound( "Sounds/youWinSound.wav" ) -- Setting a variable to an wav file
+local youLoseMusic = audio.loadSound( "Sounds/Kids Booing.mp3" ) -- Setting a variable to an mp3 file
+
+local bkgMusicChannel
+local correctSoundChannel
+local wrongSoundChannel
+local youWinMusicChannel
+local youLoseMusicChannel
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
+
+local playBkgMusic = audio.play( bkgMusic, { channel=1, loops=-1 } )
 
 local function DetermineAnswers()
     -- calculate the correct answer as well as the wrong answers
@@ -163,6 +179,10 @@ local function RestartScene()
         DetermineAnswers()
         DisplayAnswers()
     end
+
+    if (numberCorrect == 5) then
+        composer.gotoScene("you_win")
+    end
 end
 
 -- Functions that checks if the buttons have been clicked.
@@ -179,6 +199,7 @@ local function TouchListenerAnswer(touch)
             correct.isVisible = true
             -- increase the number correct by 1
             numberCorrect = numberCorrect + 1
+            correctSoundChannel = audio.play(correctSound)
             -- call RestartScene after 1 second
             timer.performWithDelay( 1000, RestartScene )
         end        
