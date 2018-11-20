@@ -1,3 +1,4 @@
+
 -----------------------------------------------------------------------------------------
 --
 -- level1_screen.lua
@@ -219,6 +220,7 @@ local function TouchListenerWrongAnswer1(touch)
         if (answer ~= tonumber(userAnswer)) then
             -- decrease a life
             lives = lives - 1
+            wrongSoundChannel = audio.play(wrongSound)
             -- call RestartScene after 1 second
             timer.performWithDelay( 1000, RestartScene )            
         end        
