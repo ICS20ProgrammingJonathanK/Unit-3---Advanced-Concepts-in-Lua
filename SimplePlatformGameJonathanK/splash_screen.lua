@@ -71,7 +71,7 @@ function scene:create( event )
 
 
     -- logo image
-    logo = display.newImageRect("Images/CompanyLogoLeo.png", 700, 500)
+    logo = display.newImageRect("Images/CompanyLogoJonathan@2x.png", 700, 500)
 
     -- set the x and y position of the logo
     logo.x = display.contentWidth/2

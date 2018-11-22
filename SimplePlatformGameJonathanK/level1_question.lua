@@ -41,10 +41,13 @@ local secondNumber
 local answer
 local wrongAnswer1
 local wrongAnswer2
+local wrongAnswer3
 
 local answerText 
 local wrongAnswerText1
 local wrongAnswerText2
+local wrongAnswerText3
+
 
 local answerPosition = 1
 local bkg
@@ -110,6 +113,8 @@ local function AddTextListeners ( )
     answerText:addEventListener( "touch", TouchListenerAnswer )
     wrongText1:addEventListener( "touch", TouchListenerWrongAnswer)
     wrongText2:addEventListener( "touch", TouchListenerWrongAnswer2)
+    wrongText3:addEventListener( "touch", TouchListenerWrongAnswer2)
+
 end
 
 --removing the event listeners

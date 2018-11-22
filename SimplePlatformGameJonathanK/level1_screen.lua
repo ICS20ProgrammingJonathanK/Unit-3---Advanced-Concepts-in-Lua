@@ -58,7 +58,7 @@ local numLives = 2
 
 local rArrow 
 local uArrow
-local larrow
+local lArrow
 
 local motionx = 0
 local SPEED = 10
@@ -90,6 +90,12 @@ local function up (touch)
     if (character ~= nil) then
         character:setLinearVelocity( 1, LINEAR_VELOCITY )
     end
+end
+
+-- When left arrow is touched, move character right
+local function left (touch)
+    motionx = -SPEED
+    character.xScale = -1
 end
 
 -- Move character horizontally
@@ -150,9 +156,6 @@ local function ReplaceCharacter()
 
     -- add back runtime listeners
     AddRuntimeListeners()
-   
-    -- create the character, add physics bodies and runtime listeners
-    ReplaceCharacter()
 end
 
 local function MakeSoccerBallsVisible()
@@ -471,7 +474,7 @@ function scene:create( event )
 
     --Insert the left arrow
     lArrow = display.newImageRect("Images/LeftArrowUnpressed.png", 100, 50)
-    lArrow.x = display.contentWidth * 9.2 / 10
+    lArrow.x = display.contentWidth * 7.2 / 10
     lArrow.y = display.contentHeight * 9.5 / 10
    
     -- Insert objects into the scene group in order to ONLY be associated with this scene
@@ -565,6 +568,8 @@ function scene:show( event )
 
         -- add collision listeners to objects
         AddCollisionListeners()
+
+        ReplaceCharacter()
     end
 
 end --function scene:show( event )
