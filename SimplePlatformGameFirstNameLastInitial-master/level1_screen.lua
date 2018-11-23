@@ -58,11 +58,13 @@ local numLives = 2
 
 local rArrow 
 local uArrow
+local lArrow
+
 
 local motionx = 0
-local SPEED = 5
+local SPEED = 7
 local LINEAR_VELOCITY = -100
-local GRAVITY = 7
+local GRAVITY = 5
 
 local leftW 
 local topW
@@ -70,6 +72,7 @@ local floor
 
 local ball1
 local ball2
+local ball3
 local theBall
 
 local questionsAnswered = 0
@@ -89,6 +92,12 @@ local function up (touch)
     if (character ~= nil) then
         character:setLinearVelocity( 0, LINEAR_VELOCITY )
     end
+end
+
+-- When right arrow is touched, move character right
+local function left (touch)
+    motionx = SPEED
+    character.xScale = -1
 end
 
 -- Move character horizontally
