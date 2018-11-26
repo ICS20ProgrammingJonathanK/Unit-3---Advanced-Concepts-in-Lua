@@ -65,13 +65,30 @@ local alternateAnswerBox2PreviousX
 -- the black box where the user will drag the answer
 local userAnswerBoxPlaceholder
 
+-- text for whenver user answeres correct or incorrect
+local correctText
+local incorrectText
+
 -- sound effects
-local correctSound
-local booSound
+local correctSound = audio.loadSound( "Sounds/Correct.wav" ) -- Setting a variable to an mp3 file
+local incorrectSound = audio.loadSound( "Sounds/boo.mp3" ) -- Setting a variable to an mp3 file
+local YouWinSound = audio.loadSound( "Sounds/yabbadabbalaugh.wav" ) -- Setting a variable to an wav file
+local YouLoseSound = audio.loadSound( "Sounds/YouLoseSound.mp3" ) -- Setting a variable to an mp3 file
+
+local bkgMusic = audio.loadStream( "Sounds/soccer.mp3" ) -- Setting a variable to an mp3 file
+
+
+local bkgMusicChannel
+local correctSoundChannel
+local incorrectSoundChannel
+local youWinMusicChannel
+local youLoseMusicChannel
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
+
+local playBkgMusic = audio.play( bkgMusic, { channel=1, loops=-1 } )
 
 local function DisplayQuestion()
     local randomNumber1
@@ -180,6 +197,10 @@ end
 -- Transitioning Function to YouWin screen
 local function YouWinTransitionLevel1( )
     composer.gotoScene("you_win", {effect = "fade", time = 500})
+end
+    -- Transitioning Function to YouWin screen
+local function YouLoseTransitionLevel1( )
+    composer.gotoScene("you_lose", {effect = "fade", time = 500})
 end
 
 -- Function to Restart Level 1
