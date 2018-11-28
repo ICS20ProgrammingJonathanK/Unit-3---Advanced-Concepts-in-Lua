@@ -269,6 +269,7 @@ local function onCollision( self, event )
 
             -- Increment questions answered
             questionsAnswered = questionsAnswered + 1 
+        
             print("***questions answered = " .. questionsAnswered)
         end
 
