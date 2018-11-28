@@ -381,8 +381,8 @@ function scene:create( event )
     bkg_image.height = display.contentHeight
 
     --the text that displays the question
-    questionText = display.newText( "" , 0, 0, nil, 100)
-    questionText.x = display.contentWidth * 0.3
+    questionText = display.newText( "" , 0, 0, nil, 150)
+    questionText.x = display.contentWidth * 0.4
     questionText.y = display.contentHeight * 0.9
 
     -- create the soccer ball and place it on the scene
@@ -396,12 +396,12 @@ function scene:create( event )
     alternateAnswerBox2AlreadyTouched = false
 
     --create answerbox alternate answers and the boxes to show them
-    answerbox = display.newText("", display.contentWidth * 0.9, 0, nil, 100)
+    answerbox = display.newText("", display.contentWidth * 0.10, 0, nil, 100)
     alternateAnswerBox1 = display.newText("", display.contentWidth * 0.9, 0, nil, 100)
     alternateAnswerBox2 = display.newText("", display.contentWidth * 0.9, 0, nil, 100)
 
     -- set the x positions of each of the answer boxes
-    answerboxPreviousX = display.contentWidth * 0.9
+    answerboxPreviousX = display.contentWidth * .9
     alternateAnswerBox1PreviousX = display.contentWidth * 0.9
     alternateAnswerBox2PreviousX = display.contentWidth * 0.9
 
