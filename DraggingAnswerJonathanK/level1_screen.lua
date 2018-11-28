@@ -437,11 +437,11 @@ function scene:show( event )
     -----------------------------------------------------------------------------------------
 
     if ( phase == "will" ) then
-
+       
         -- Called when the scene is still off screen (but is about to come on screen).    
 
     elseif ( phase == "did" ) then
-
+        bkgMusicChannel = audio.play (bkgMusic)
         -- Called when the scene is now on screen.
         -- Insert code here to make the scene come alive.
         -- Example: start timers, begin animation, play audio, etc.
